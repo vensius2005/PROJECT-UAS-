@@ -17,7 +17,6 @@ features = [col for col in df.columns if col != target]
 num_cols = df[features].select_dtypes(include=["int64", "float64"]).columns.tolist()
 cat_cols = df[features].select_dtypes(include=["object"]).columns.tolist()
 
-# ================== Nama Kolom Bahasa Indonesia ==================
 nama_kolom_id = {
     "Person ID": "ID Orang",
     "Age": "Umur",
@@ -33,10 +32,8 @@ nama_kolom_id = {
     "Alcohol Consumption": "Konsumsi Alkohol",
     "Stress Level": "Tingkat Stres",
     "Quality of Sleep": "Kualitas Tidur",
-    # Tambah lagi sesuai kebutuhan
 }
 
-# Isi otomatis jika ada kolom baru yang belum ada di dictionary
 for col in features:
     if col not in nama_kolom_id:
         nama_kolom_id[col] = " ".join(word.capitalize() for word in col.split())
